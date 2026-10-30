@@ -153,7 +153,7 @@ export const sourceEntries: WikiEntry[] = [
     body: [
       {
         type: 'paragraph',
-        text: '站内“30+ 主武器”“25 种影之武装”“三种难度”与“甄子丹参与魔渊面部与动作捕捉”等信息，主要依据这篇官方文章及其配套公开活动。',
+        text: '站内“30+ 主武器”“25 种影之武装”与“甄子丹参与魔渊面部与动作捕捉”等信息，主要依据这篇官方文章及其配套公开活动；文中出现的三档英文难度名是发售前口径，正式版为四档中文难度。',
       },
     ],
     links: [
@@ -171,18 +171,18 @@ export const sourceEntries: WikiEntry[] = [
     title: 'PlayStation Blog · 2026-10-28',
     subtitle: '首领武器如何改变战斗与探索',
     summary:
-      '发售前一天的官方文章，说明首领武器的获取、战斗风格变化、探索路径联动，以及武器重铸返还材料的机制。',
-    tags: ['PlayStation Blog', '官方', '2026', '首领武器', '探索', '重铸'],
+      '发售前一天的官方文章，说明首领武器的获取、战斗风格变化、探索路径联动，以及等级重置返还材料的机制（游戏内为逆炼符）。',
+    tags: ['PlayStation Blog', '官方', '2026', '首领武器', '探索', '逆炼符'],
     status: 'confirmed',
     facts: [
       { label: '类型', value: '官方博客' },
       { label: '日期', value: '2026-10-28' },
-      { label: '用途', value: '首领武器 / 探索 / 重铸' },
+      { label: '用途', value: '首领武器 / 探索 / 等级重置' },
     ],
     body: [
       {
         type: 'paragraph',
-        text: '文章把首领武器从“掉落物”提升为“探索工具”：击败首领得到的兵器可能改变玩家与地图的交互方式。站内“首领武器与重铸”条目以此为主要依据。',
+        text: '文章把首领武器从“掉落物”提升为“探索工具”：击败首领得到的兵器可能改变玩家与地图的交互方式。站内「升级、铸魂与逆炼」条目以此为主要依据。',
       },
     ],
     links: [
@@ -235,35 +235,71 @@ export const sourceEntries: WikiEntry[] = [
     title: '腾讯新闻 · 八大地图媒体整理',
     subtitle: '2026-10-26 · 辅助来源',
     summary:
-      '2026 年 10 月 26 日的媒体整理文章，汇总了八大地图名称。站内将其作为“媒体整理”来源使用，中文译名可能与正式版不同。',
-    tags: ['腾讯新闻', '媒体整理', '八大地图', '辅助来源'],
+      '2026 年 10 月 26 日的媒体整理文章，汇总了八大地图名称。发售后核对发现其中至少四个中文名与游戏内不一致，本站已改用游戏内名称，仅把旧译名留作对照。',
+    tags: ['腾讯新闻', '媒体整理', '八大地图', '辅助来源', '译名差异'],
     status: 'compiled',
     facts: [
       { label: '类型', value: '媒体整理（辅助）' },
       { label: '日期', value: '2026-10-26' },
-      { label: '用途', value: '八大地图名称' },
-      { label: '可信度', value: '低于官方来源' },
+      { label: '用途', value: '旧译名对照' },
+      { label: '偏差', value: '悲泣溪谷→溪谷、赤红森林→血色森林、梅姑湖→梅谷湖、狱山→枷笼山' },
     ],
     body: [
       {
         type: 'paragraph',
-        text: '八大地图名称最早在 2026 年 10 月的媒体解禁内容中集中出现。本站用这篇文章辅助核对地名，但不把它当作官方定名依据；地图与首领的对应关系也没有采用文章之外的推测。',
+        text: '八大地图名称最早在 2026 年 10 月的媒体解禁内容中集中出现。本站曾以这篇文章为基础建立地图条目，但发售后与社区 Wiki 的游戏内名称核对，发现四处译名不一致。',
+      },
+      {
+        type: 'paragraph',
+        text: '这条来源现在只承担一个作用：解释「为什么网上流传的旧名字和游戏里不一样」。地图条目一律以游戏内名称为标题，旧译名保留在事实栏以便检索。',
       },
       {
         type: 'note',
         tone: 'caution',
         title: '辅助来源',
-        text: '媒体整理可能出现译名差异或转述误差。读者应以正式版游戏内地图文本为准。',
+        text: '媒体整理在发售前的译名转述上存在系统性偏差，不宜作为定名依据。',
       },
     ],
     links: [
       {
         label: '腾讯新闻 · 八大地图整理',
         href: SOURCE_URLS.qqMaps,
-        note: '仅作辅助来源',
+        note: '仅作旧译名对照',
       },
     ],
-    related: ['world-overview', 'map-weeping-valley', 'source-status-guide'],
+    related: ['world-overview', 'map-valley', 'source-status-guide'],
+  },
+  {
+    id: 'source-press-launch',
+    section: 'sources',
+    title: '财经媒体 · 首日市场与评分',
+    subtitle: '2026-10-29 · 证券时报 / 每日经济新闻',
+    summary:
+      '发售当日的财经报道，汇总 Steam 同时在线峰值、畅销榜排名、预购量估算与 Metacritic / IGN 评分。本站的首日市场与评分数据主要引自这类报道。',
+    tags: ['财经媒体', '证券时报', '市场数据', '评分', '首日'],
+    status: 'compiled',
+    facts: [
+      { label: '类型', value: '财经媒体报道' },
+      { label: '日期', value: '2026-10-29' },
+      { label: '用途', value: '在线人数 / 畅销榜 / 预购估算 / 评分' },
+      { label: '数据性质', value: '第三方监测与机构估算，非官方' },
+    ],
+    body: [
+      {
+        type: 'paragraph',
+        text: '发售当日的财经报道贡献了本站缺的那一块：市场侧的数据。Steam 同时在线峰值 43 万来自 SteamDB 监测，预购约 85 万份与 2.87 亿元来自 Alinea Analytics 估算，Metacritic 88 分与 IGN 9 分则来自评分站与媒体本身。',
+      },
+      {
+        type: 'note',
+        tone: 'caution',
+        title: '二手转述',
+        text: '这类报道多为互相转载，数字一致但未必各自独立核实。站内标注为「媒体整理」，不视作官方销量公告。',
+      },
+    ],
+    links: [
+      { label: '证券时报 · 登顶全球畅销榜', href: SOURCE_URLS.pressLaunch, note: '2026-10-29' },
+    ],
+    related: ['news-launch-performance', 'news-reviews', 'overview-release'],
   },
   {
     id: 'source-bwiki',
@@ -271,23 +307,27 @@ export const sourceEntries: WikiEntry[] = [
     title: 'BWIKI · 影之刃零 Wiki',
     subtitle: '社区 Wiki · 武器面板与图鉴',
     summary:
-      '哔哩哔哩游戏 Wiki 的《影之刃零》分区，是本站武器面板、升级特性、铸魂与升级材料数据的主要来源。内容由玩家实测整理，随版本更新。',
-    tags: ['BWIKI', '社区 Wiki', '武器面板', '图鉴', '实测'],
+      '哔哩哔哩游戏 Wiki 的《影之刃零》分区，是本站武器面板、升级特性、铸魂、升级材料、地图名称、难度规则与敌人分类的主要来源。内容由玩家实测整理，随版本更新。',
+    tags: ['BWIKI', '社区 Wiki', '武器面板', '图鉴', '地图', '难度', '实测'],
     status: 'community',
     facts: [
       { label: '类型', value: '社区 Wiki' },
-      { label: '用途', value: '武器面板 / 升级特性 / 铸魂 / 材料' },
-      { label: '覆盖', value: '主武器与影之武装、敌人、地图、收集品' },
+      { label: '用途', value: '武器面板 / 升级 / 铸魂 / 地图 / 难度 / 敌人' },
+      { label: '覆盖', value: '主武器与影之武装、头目、杂兵、地图、收集品、记忆之花' },
       { label: '可信度', value: '高于零散攻略，低于官方文本' },
     ],
     body: [
       {
         type: 'paragraph',
-        text: '站内 43 把武器与影之武装的“伤害能力 / 破防能力 / 异常效果”初始与满级值、轮回档位、绝技描述、铸魂效果、Lv.5—30 的六条升级特性，以及每一级的材料消耗，均取自该 Wiki 的武器信息与升级模板。',
+        text: '站内 50 把武器与影之武装的「伤害能力 / 破防能力 / 异常效果 / 召唤物生命 / 召唤物伤害」初始与满级值、轮回档位、绝技描述、铸魂效果、Lv.5—30 的六条升级特性，以及每一级的材料消耗，均取自该 Wiki 的武器信息与升级模板。',
       },
       {
         type: 'paragraph',
-        text: '社区 Wiki 的优点是可核查、更新快；风险是早期条目仍在补全（不少武器的“获取方式”尚未填写），且数值会随官方平衡调整而变化。本站据此把这类条目标记为「社区实测」，并优先使用官方或攻略站可交叉验证的信息补充获取方式。',
+        text: '除武器外，本站的地图名称（溪谷 / 血色森林 / 梅谷湖 / 枷笼山 / 正道大营 / 庞镇）、难度与存档规则（入阵者 / 破局者 / 逆天者 / 66 天）、头目名单（21 种已命名）、杂兵分类（32 种）与收集物系统（杀气琥珀 / 黑石 / 记忆之花）也主要依据该 Wiki 的对应页面。',
+      },
+      {
+        type: 'paragraph',
+        text: '社区 Wiki 的优点是可核查、更新快；风险是早期条目仍在补全（不少武器的「获取方式」尚未填写，地图的收集度与任务数仍是空白），且数值会随官方平衡调整而变化。本站据此把这类条目标记为「社区实测」，并优先使用官方或攻略站可交叉验证的信息补充获取方式。',
       },
       {
         type: 'note',
@@ -299,9 +339,12 @@ export const sourceEntries: WikiEntry[] = [
     links: [
       { label: 'BWIKI · 主武器图鉴', href: SOURCE_URLS.bwikiWeapons, note: '武器索引' },
       { label: 'BWIKI · 武器升级', href: SOURCE_URLS.bwikiUpgrade, note: '升级规则' },
-      { label: 'BWIKI · 影之刃零首页', href: SOURCE_URLS.bwiki, note: '社区 Wiki 首页' },
+      { label: 'BWIKI · 游戏地图', href: SOURCE_URLS.bwikiMaps, note: '地图与收集物' },
+      { label: 'BWIKI · 难度与成就', href: SOURCE_URLS.bwikiDifficulty, note: '难度与存档' },
+      { label: 'BWIKI · BOSS 图鉴', href: SOURCE_URLS.bwikiBosses, note: '头目名单' },
+      { label: 'BWIKI · 杂兵图鉴', href: SOURCE_URLS.bwikiEnemies, note: '敌人分类' },
     ],
-    related: ['arsenal-overview', 'arsenal-forge', 'weapon-residual-steel', 'source-status-guide'],
+    related: ['arsenal-overview', 'arsenal-forge', 'world-overview', 'gameplay-difficulty', 'source-status-guide'],
   },
   {
     id: 'source-gamersky-weapons',

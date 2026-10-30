@@ -17,7 +17,7 @@ interface SearchPageProps {
   initialSection?: SectionId;
 }
 
-const QUICK_QUERIES = ['魂', '杀气', '甄子丹', '悲泣溪谷', '难度模式', '首领武器'];
+const QUICK_QUERIES = ['魂', '杀气', '甄子丹', '溪谷', '难度模式', '首领武器'];
 
 export function SearchPage({ initialQuery, initialSection }: SearchPageProps) {
   const [query, setQuery] = useState(initialQuery);

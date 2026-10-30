@@ -34,7 +34,8 @@ export const characterEntries: WikiEntry[] = [
         items: [
           '已知：身份、构陷事件、心脏重创与六十六日期限均来自官方公开信息。',
           '已知：可使用多类主武器与影之武装，部分能力用于探索开路。',
-          '待补充：他与阿花、荆野、魔渊等人的具体关系，官方尚未完整说明。',
+          '已知：与魔渊的关系是主线真相的一部分，细节见「魔渊」条目（含剧透）。',
+          '待补充：他与阿花、荆野等人的关系仍有大量留白。',
           '待补充：六十六日结束后的叙事处理方式，不在本页作推测。',
         ],
       },
@@ -51,31 +52,39 @@ export const characterEntries: WikiEntry[] = [
     id: 'char-moyuan',
     section: 'characters',
     title: '魔渊',
-    subtitle: '由甄子丹参与塑造的角色',
+    subtitle: '暗魔天堡之主 · 最终 BOSS',
     summary:
-      '公开资料中与甄子丹深度关联的角色。甄子丹担任本作创意顾问，并参与魔渊的面部与动作捕捉；角色在故事中的完整立场与背景仍待官方补充。',
-    tags: ['魔渊', '甄子丹', '动作捕捉', '创意顾问'],
-    status: 'confirmed',
+      '甄子丹担任本作创意顾问，并参与魔渊的面部与动作捕捉。社区 Wiki 标注其为暗魔天堡之主、本作最终 BOSS，且是魂的亲生父亲——后两条属于剧透级信息。',
+    tags: ['魔渊', '甄子丹', '暗魔天堡', '最终BOSS', '父子', '剧透'],
+    status: 'community',
+    featured: true,
     facts: [
-      { label: '关联演员', value: '甄子丹' },
-      { label: '参与方式', value: '创意顾问 / 面部与动作捕捉' },
-      { label: '剧情立场', value: '待补充' },
+      { label: '扮演者', value: '甄子丹（创意顾问 / 面部与动作捕捉）' },
+      { label: '身份', value: '暗魔天堡之主' },
+      { label: '剧情定位', value: '最终 BOSS' },
+      { label: '与魂的关系', value: '父子（剧透）' },
+      { label: '江湖地位', value: '年轻时修为冠绝武林，公认的武林第一人' },
       { label: '首次重点公开', value: '2026-08-17 State of Play' },
     ],
     body: [
       {
         type: 'paragraph',
-        text: '2026 年 8 月 17 日的 State of Play 介绍中，官方确认甄子丹参与《影之刃零》的创意顾问工作，并为魔渊提供面部与动作捕捉。对一款强调近身兵器与武术演出效果的动作游戏而言，这类参与不仅是“明星客串”，也会影响角色的动作节奏与镜头呈现。',
+        text: '2026 年 8 月 17 日的 State of Play 介绍中，官方确认甄子丹参与《影之刃零》的创意顾问工作，并为魔渊提供面部与动作捕捉。对一款强调近身兵器与武术演出效果的动作游戏而言，这类参与不仅是「明星客串」，也会影响角色的动作节奏与镜头呈现。',
+      },
+      { type: 'heading', text: '剧透分隔：以下涉及主线真相' },
+      {
+        type: 'paragraph',
+        text: '发售后社区整理确认了魔渊的两重身份：他是暗魔天堡之主，也是本作的最终 BOSS；更关键的是，他是魂的亲生父亲。这让主线「追查构陷者」的终点变成一场父子决战，也解释了为什么「组织」首领之死能把魂推到这个位置。',
       },
       {
         type: 'paragraph',
-        text: '需要区分“演员”与“角色”：甄子丹参与塑造魔渊，不等于魔渊就是演员本人的传记式投影。魔渊在主线中站在哪一方、与魂有何恩怨，目前没有足够资料可以下结论。',
+        text: '需要区分「演员」与「角色」：甄子丹参与塑造魔渊，不等于魔渊是演员本人的传记式投影。魔渊年轻时的战绩、与暗魔天堡的关系、以及他为何要布下这场局，仍需以游戏内文本为准。',
       },
       {
         type: 'note',
         tone: 'caution',
-        title: '资料边界',
-        text: '“甄子丹担任创意顾问并参与面部与动作捕捉”为已确认信息；“魔渊是最终反派 / 魂的师父”等说法缺少官方支撑，本站不收录为事实。',
+        title: '资料分级',
+        text: '「甄子丹担任创意顾问并参与面部与动作捕捉」为官方已确认信息；「暗魔天堡之主 / 最终 BOSS / 魂的生父」来自社区 Wiki 的实机整理，属剧透内容，故本条整体标记为「社区实测」。',
       },
     ],
     links: [
@@ -84,8 +93,9 @@ export const characterEntries: WikiEntry[] = [
         href: SOURCE_URLS.ps2026August,
         note: '2026-08-17',
       },
+      { label: 'BWIKI · 魔渊 BOSS', href: SOURCE_URLS.bwikiBosses, note: '社区整理' },
     ],
-    related: ['char-hun', 'news-state-of-play', 'arsenal-shaqi'],
+    related: ['char-hun', 'news-state-of-play', 'world-bosses', 'story-conspiracy'],
   },
   {
     id: 'char-ahua',
@@ -240,24 +250,95 @@ export const characterEntries: WikiEntry[] = [
     title: '影境群像',
     subtitle: '村民、江湖人与受难者',
     summary:
-      '除首领与刺客外，影境中还有村民、江湖人、商旅与受难者。支线与地图叙事共同构成武林群像，具体人物以正式版为准。',
-    tags: ['群像', '居民', '武林', '支线'],
+      '除头目与刺客外，影境中还有村民、江湖人、商旅与受难者。社区整理中大量「XX 的记忆之花」条目正是从这些人身上长出来的，具体人物以游戏内为准。',
+    tags: ['群像', '居民', '武林', '支线', '记忆之花'],
     status: 'compiled',
     facts: [
       { label: '构成', value: '村民 / 江湖人 / 商旅 / 受难者' },
       { label: '叙事作用', value: '支线、地图氛围、世界观察' },
-      { label: '资料状态', value: '媒体整理' },
+      { label: '相关条目', value: '玉儿 / 烟儿 / 老根头 / 高员外 等记忆之花' },
+      { label: '资料状态', value: '社区整理' },
     ],
     body: [
       {
         type: 'paragraph',
-        text: '《影之刃零》的影境并不只有强者。村庄、市镇、营地与山路之间，普通人的处境让“武林”从一套战斗系统变成一个有重量的社会。支线任务往往从这些人的请求开始，再把玩家带回主线阴影之下。',
+        text: '《影之刃零》的影境并不只有强者。村庄、市镇、营地与山路之间，普通人的处境让「武林」从一套战斗系统变成一个有重量的社会。支线任务往往从这些人的请求开始，再把玩家带回主线阴影之下。',
+      },
+      {
+        type: 'paragraph',
+        text: '记忆之花是观察这群人最直接的入口：玉儿、烟儿、白雪儿、倩倩、老根头、高员外、陆家村村民、江湖人士、水行帮众、实验受害者……这些条目覆盖了从童年玩伴到边缘帮众的各个层次，也拼出了「山庄实验」「龙体之术」这类背景设定的民间版本。',
       },
       {
         type: 'paragraph',
         text: '本条目是群像入口，不虚构具体 NPC 姓名。村民与江湖人的故事以游戏内文本和后续可靠资料为准。',
       },
     ],
-    related: ['gameplay-sidequests', 'world-overview', 'overview-world'],
+    related: ['gameplay-sidequests', 'gameplay-memory-flower', 'world-overview', 'char-lengtu'],
+  },
+  {
+    id: 'char-muxiaokui',
+    section: 'characters',
+    title: '沐小葵',
+    subtitle: '既是角色，也是头目',
+    summary:
+      '社区头目图鉴中被标注为「BOSS/角色」的人物。她的「缎带」散落在陆家村，集齐后可从妖锯中触发隐藏阶段「玉妖」；击败玉妖才能获得妖锯。',
+    tags: ['沐小葵', '玉妖', '妖锯', '陆家村', '缎带'],
+    status: 'community',
+    facts: [
+      { label: '身份', value: 'BOSS 兼剧情角色' },
+      { label: '相关收集', value: '沫小葵的缎带（据武器获取路径，字或作「沫」）' },
+      { label: '隐藏阶段', value: '玉妖' },
+      { label: '掉落', value: '妖锯（击败玉妖后获得）' },
+    ],
+    body: [
+      {
+        type: 'paragraph',
+        text: '沐小葵是本作里少见的「角色 + 头目」双重身份人物。以她为核心的设计是收集驱动的：缎带散落在陆家村，集齐后才能触发妖锯的隐藏阶段「玉妖」。',
+      },
+      {
+        type: 'paragraph',
+        text: '这也意味着「打不过的 Boss」在本作可能不是数值问题，而是信息问题——你没有找齐前置道具，战斗就停在了第一阶段。',
+      },
+      {
+        type: 'note',
+        tone: 'caution',
+        title: '名字用法',
+        text: '社区资料中「沐小葵」与「沫小葵」两种写法并存，本条以头目图鉴的「沐小葵」为标题，获取路径沿用「沫小葵的缎带」的原始写法。',
+      },
+    ],
+    related: ['world-bosses', 'map-lu-village', 'weapon-demon-saw', 'gameplay-collectibles'],
+  },
+  {
+    id: 'char-lengtu',
+    section: 'characters',
+    title: '冷荼',
+    subtitle: '「梦差」，玩丝线的人',
+    summary:
+      '在影之武装「深渊铃铛」的说明文字中被点名的人物，被称为「梦差」，意图以丝线颠覆武林。相关战斗与剧情尚未收录。',
+    tags: ['冷荼', '梦差', '深渊铃铛', '操偶', '反派'],
+    status: 'incomplete',
+    facts: [
+      { label: '称号', value: '梦差' },
+      { label: '行为', value: '玩弄人心，意图颠覆武林' },
+      { label: '相关物品', value: '深渊铃铛（操偶铃铛铸魂形态）' },
+      { label: '战斗 / 剧情', value: '待补充' },
+    ],
+    body: [
+      {
+        type: 'paragraph',
+        text: '冷荼的名字出现在深渊铃铛的物品说明里：他玩弄人心，试图用强大的丝线颠覆武林。玩家拿到的深渊铃铛，就是「以此物为操偶铃铛铸魂」而成的产物——换句话说，这把影之武装本身就带着他的痕迹。',
+      },
+      {
+        type: 'paragraph',
+        text: '社区 Wiki 另有「冷荼的记忆之花」条目，说明这个人物有可被追述的过去，也可能是可战斗对象。但目前缺少可靠的战斗与身份资料，本条只记录已出现的信息。',
+      },
+      {
+        type: 'note',
+        tone: 'caution',
+        title: '待补充',
+        text: '所属势力、出场顺序与是否为头目均未确认，不写入推测。',
+      },
+    ],
+    related: ['weapon-abyss-bell', 'char-moyuan', 'world-bosses', 'gameplay-memory-flower'],
   },
 ];

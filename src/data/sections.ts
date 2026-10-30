@@ -26,7 +26,7 @@ export const SECTIONS: Section[] = [
     title: '武器与技能',
     english: 'ARSENAL',
     kicker: '兵者',
-    description: '主武器、影之武装、杀气资源，以及首领武器与重铸。',
+    description: '主武器、影之武装、杀气与暗源，以及头目武器、铸魂与逆炼。',
   },
   {
     id: 'story',
@@ -53,7 +53,7 @@ export const SECTIONS: Section[] = [
     title: '玩法机制',
     english: 'GAMEPLAY',
     kicker: '入阵',
-    description: '半开放箱庭、支线分支、记忆花、能力锁与三种难度。',
+    description: '宽线性地图、支线分支、收集成长、能力锁与四档难度。',
   },
   {
     id: 'news',

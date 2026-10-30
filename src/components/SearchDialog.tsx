@@ -14,7 +14,7 @@ interface SearchDialogProps {
   onClose: () => void;
 }
 
-const QUICK_QUERIES = ['魂', '杀气', '悲泣溪谷', '甄子丹', '难度', '首领武器'];
+const QUICK_QUERIES = ['魂', '杀气', '血色森林', '甄子丹', '难度', '首领武器'];
 
 export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const [query, setQuery] = useState('');
