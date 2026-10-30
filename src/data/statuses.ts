@@ -10,6 +10,7 @@ export const STATUS_ORDER: SourceStatus[] = [
   'confirmed',
   'demo',
   'hands-on',
+  'community',
   'compiled',
   'incomplete',
   'meta',
@@ -30,6 +31,11 @@ export const STATUS_META: Record<SourceStatus, StatusMeta> = {
     label: '媒体体验',
     description: '来自媒体试玩或体验报道，属于可核实的二手体验记录。',
     tone: 'steel',
+  },
+  community: {
+    label: '社区实测',
+    description: '来自社区 Wiki 的实测面板与整理，数值会随版本平衡调整，跨版本比较时请以当前版本为准。',
+    tone: 'ink',
   },
   compiled: {
     label: '媒体整理',

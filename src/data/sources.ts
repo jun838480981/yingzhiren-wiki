@@ -46,13 +46,14 @@ export const sourceEntries: WikiEntry[] = [
     title: '资料状态说明',
     subtitle: '如何阅读本站的“可信度标签”',
     summary:
-      '站内每个条目都带有资料状态：已确认、公开演示、媒体体验、媒体整理、待补充、站务说明。标签用来区分信息强度，避免把推测写成定论。',
+      '站内每个条目都带有资料状态：已确认、公开演示、媒体体验、社区实测、媒体整理、待补充、站务说明。标签用来区分信息强度，避免把推测写成定论。',
     tags: ['资料状态', '编辑规范', '可信度', '站务'],
     status: 'meta',
     facts: [
       { label: '已确认', value: '官方公告 / 商店页 / 正式版可核实' },
       { label: '公开演示', value: '官方演示或预告，细节可能调整' },
       { label: '媒体体验', value: '媒体试玩报道，二手但可核实' },
+      { label: '社区实测', value: '社区 Wiki 实测面板，随版本变动' },
       { label: '媒体整理', value: '媒体汇总，译名可能不同' },
       { label: '待补充', value: '公开资料不足' },
       { label: '站务说明', value: '本站规范与声明' },
@@ -65,6 +66,10 @@ export const sourceEntries: WikiEntry[] = [
       {
         type: 'paragraph',
         text: '“公开演示”与“媒体体验”都来自可核实的公开活动，但演示版本与正式版可能存在数值、名称或演出差异。我们保留这些信息，同时提醒读者不要把它们当作最终版本说明书。',
+      },
+      {
+        type: 'paragraph',
+        text: '“社区实测”用于发售后由玩家或社区 Wiki 直接读出的游戏内数据，主要是武器面板、升级材料这类可被复核的数字。它是目前最细的一层信息，但也最受版本平衡影响——跨版本比较时请以当前版本为准。',
       },
       {
         type: 'paragraph',
@@ -259,5 +264,77 @@ export const sourceEntries: WikiEntry[] = [
       },
     ],
     related: ['world-overview', 'map-weeping-valley', 'source-status-guide'],
+  },
+  {
+    id: 'source-bwiki',
+    section: 'sources',
+    title: 'BWIKI · 影之刃零 Wiki',
+    subtitle: '社区 Wiki · 武器面板与图鉴',
+    summary:
+      '哔哩哔哩游戏 Wiki 的《影之刃零》分区，是本站武器面板、升级特性、铸魂与升级材料数据的主要来源。内容由玩家实测整理，随版本更新。',
+    tags: ['BWIKI', '社区 Wiki', '武器面板', '图鉴', '实测'],
+    status: 'community',
+    facts: [
+      { label: '类型', value: '社区 Wiki' },
+      { label: '用途', value: '武器面板 / 升级特性 / 铸魂 / 材料' },
+      { label: '覆盖', value: '主武器与影之武装、敌人、地图、收集品' },
+      { label: '可信度', value: '高于零散攻略，低于官方文本' },
+    ],
+    body: [
+      {
+        type: 'paragraph',
+        text: '站内 43 把武器与影之武装的“伤害能力 / 破防能力 / 异常效果”初始与满级值、轮回档位、绝技描述、铸魂效果、Lv.5—30 的六条升级特性，以及每一级的材料消耗，均取自该 Wiki 的武器信息与升级模板。',
+      },
+      {
+        type: 'paragraph',
+        text: '社区 Wiki 的优点是可核查、更新快；风险是早期条目仍在补全（不少武器的“获取方式”尚未填写），且数值会随官方平衡调整而变化。本站据此把这类条目标记为「社区实测」，并优先使用官方或攻略站可交叉验证的信息补充获取方式。',
+      },
+      {
+        type: 'note',
+        tone: 'caution',
+        title: '引用方式',
+        text: '每条武器条目底部都直接链接到对应的 BWIKI 原始页面，便于读者回溯与核对最新版本数据。',
+      },
+    ],
+    links: [
+      { label: 'BWIKI · 主武器图鉴', href: SOURCE_URLS.bwikiWeapons, note: '武器索引' },
+      { label: 'BWIKI · 武器升级', href: SOURCE_URLS.bwikiUpgrade, note: '升级规则' },
+      { label: 'BWIKI · 影之刃零首页', href: SOURCE_URLS.bwiki, note: '社区 Wiki 首页' },
+    ],
+    related: ['arsenal-overview', 'arsenal-forge', 'weapon-residual-steel', 'source-status-guide'],
+  },
+  {
+    id: 'source-gamersky-weapons',
+    section: 'sources',
+    title: '游民星空 · 武器攻略',
+    subtitle: '2026-10-29 · 全武器获取与前期面板对比',
+    summary:
+      '游民星空在发售当日发布的武器攻略，提供全武器获取路径与前期七把武器的 1 级面板对比。本站主要用它交叉验证获取方式。',
+    tags: ['游民星空', '攻略', '武器获取', '面板对比', '2026-10-29'],
+    status: 'compiled',
+    facts: [
+      { label: '类型', value: '媒体攻略' },
+      { label: '日期', value: '2026-10-29' },
+      { label: '用途', value: '武器获取路径 / 面板交叉验证' },
+    ],
+    body: [
+      {
+        type: 'paragraph',
+        text: '该站的武器获取路径写得比社区 Wiki 更早、更完整（例如残钢刃、红妆鬼斩、天玄青铜剑、妖锯的取得条件），因此本站用它补齐了武器条目里的“获取”一栏；面板数值仍以社区 Wiki 为准，两者在前期七把武器上完全一致。',
+      },
+    ],
+    links: [
+      {
+        label: '全武器获取方法',
+        href: SOURCE_URLS.gamerskyWeapons,
+        note: '2026-10-29',
+      },
+      {
+        label: '前期武器面板对比',
+        href: SOURCE_URLS.gamerskyCompare,
+        note: '1 级面板横向对比',
+      },
+    ],
+    related: ['source-bwiki', 'arsenal-overview', 'weapon-giant-axe'],
   },
 ];

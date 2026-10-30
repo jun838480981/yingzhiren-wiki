@@ -8,6 +8,11 @@ export const SOURCE_URLS = {
     'https://blog.playstation.com/2026/10/28/phantom-blade-zero-how-boss-weapons-transform-combat-and-exploration/',
   steam: 'https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/',
   qqMaps: 'https://new.qq.com/rain/a/20261026A09VVZ00',
+  bwiki: 'https://wiki.biligame.com/yingzhiren/',
+  bwikiWeapons: 'https://wiki.biligame.com/yingzhiren/%E4%B8%BB%E6%AD%A6%E5%99%A8',
+  bwikiUpgrade: 'https://wiki.biligame.com/yingzhiren/%E6%AD%A6%E5%99%A8%E5%8D%87%E7%BA%A7',
+  gamerskyWeapons: 'https://www.gamersky.com/handbook/202610/2235539.shtml',
+  gamerskyCompare: 'https://www.gamersky.com/handbook/202610/2237921.shtml',
 } as const;
 
 export const RELEASE_DATE = '2026-10-29';

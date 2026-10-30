@@ -3596,6 +3596,353 @@ mark {
   }
 }
 
+/* ---------- 武器数值面板 ---------- */
+.weapon-panel {
+  position: relative;
+  margin: 0 0 40px;
+  padding: 22px 24px 20px;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--rust);
+  background:
+    linear-gradient(180deg, rgba(166, 60, 44, 0.07), transparent 42%),
+    rgba(232, 221, 198, 0.02);
+}
+
+.weapon-panel::after {
+  position: absolute;
+  top: -2px;
+  right: 24px;
+  width: 42px;
+  height: 2px;
+  background: var(--gold);
+  content: '';
+  opacity: 0.7;
+}
+
+.weapon-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.weapon-panel__kicker {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.weapon-panel__kicker span {
+  color: rgba(125, 115, 100, 0.6);
+  font-size: 7.5px;
+}
+
+.weapon-panel__title {
+  margin-top: 4px;
+  color: var(--paper);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.weapon-panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weapon-panel__chips li {
+  padding: 3px 9px;
+  border: 1px solid rgba(197, 162, 105, 0.22);
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+}
+
+.weapon-table-wrap {
+  overflow-x: auto;
+}
+
+.weapon-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.weapon-table th,
+.weapon-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(197, 162, 105, 0.12);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.weapon-table thead th {
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.weapon-table thead th:first-child,
+.weapon-table tbody th {
+  text-align: left;
+}
+
+.weapon-table tbody th {
+  color: var(--paper-2);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.weapon-table td {
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.weapon-table__max {
+  color: var(--gold);
+}
+
+.weapon-block {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(197, 162, 105, 0.12);
+}
+
+.weapon-block__title {
+  margin-bottom: 12px;
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+.weapon-block__title span {
+  color: rgba(125, 115, 100, 0.65);
+  font-size: 7.5px;
+}
+
+.weapon-skills {
+  margin: 0;
+}
+
+.weapon-skills__row {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(197, 162, 105, 0.08);
+}
+
+.weapon-skills__row:last-child {
+  border-bottom: 0;
+}
+
+.weapon-skills dt {
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.weapon-skills dd {
+  margin: 0;
+  color: var(--paper-dim);
+  font-size: 11.5px;
+  line-height: 1.85;
+}
+
+.weapon-block--forge {
+  padding-left: 14px;
+  border-left: 2px solid var(--copper);
+}
+
+.weapon-forge__material {
+  margin-bottom: 8px;
+  color: var(--paper-dim);
+  font-size: 11.5px;
+}
+
+.weapon-forge__material span {
+  margin-right: 10px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.weapon-forge__effect {
+  color: var(--paper-dim);
+  font-size: 11.5px;
+  line-height: 1.85;
+}
+
+.weapon-forge__effect strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--rust-2);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.weapon-traits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weapon-traits__item {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(197, 162, 105, 0.08);
+}
+
+.weapon-traits__item:last-child {
+  border-bottom: 0;
+}
+
+.weapon-traits__level {
+  color: var(--copper);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.weapon-traits__name {
+  margin-bottom: 3px;
+  color: var(--paper);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.weapon-traits__effect {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.weapon-upgrade {
+  margin-top: 24px;
+  border-top: 1px solid rgba(197, 162, 105, 0.12);
+}
+
+.weapon-upgrade > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0 12px;
+  color: var(--paper-dim);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  list-style: none;
+}
+
+.weapon-upgrade > summary::-webkit-details-marker {
+  display: none;
+}
+
+.weapon-upgrade > summary:hover,
+.weapon-upgrade > summary:focus-visible {
+  color: var(--gold);
+}
+
+.weapon-upgrade > summary:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.weapon-upgrade__hint {
+  color: var(--muted);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+}
+
+.weapon-upgrade__list {
+  margin: 0 0 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.weapon-upgrade__list li {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  padding: 5px 0;
+  border-bottom: 1px dotted rgba(197, 162, 105, 0.1);
+}
+
+.weapon-upgrade__level {
+  color: var(--copper);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+}
+
+.weapon-upgrade__cost {
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.7;
+}
+
+.weapon-panel__note {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(197, 162, 105, 0.1);
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.8;
+}
+
+@media (max-width: 720px) {
+  .weapon-panel {
+    padding: 18px 15px 16px;
+  }
+
+  .weapon-panel__head {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .weapon-panel__chips {
+    justify-content: flex-start;
+  }
+
+  .weapon-table th,
+  .weapon-table td {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .weapon-skills__row,
+  .weapon-traits__item,
+  .weapon-upgrade__list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

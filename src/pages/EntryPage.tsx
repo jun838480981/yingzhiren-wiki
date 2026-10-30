@@ -5,6 +5,7 @@ import { ExternalIcon } from '../components/Icons';
 import { Prose } from '../components/Prose';
 import { SectionGlyph } from '../components/SectionGlyph';
 import { StatusBadge } from '../components/StatusBadge';
+import { WeaponPanel } from '../components/WeaponPanel';
 
 interface EntryPageProps {
   entry: WikiEntry;
@@ -74,6 +75,8 @@ export function EntryPage({ entry }: EntryPageProps) {
               </dl>
             </section>
           ) : null}
+
+          {entry.weapon ? <WeaponPanel profile={entry.weapon} /> : null}
 
           <Prose blocks={entry.body} />
 

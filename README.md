@@ -9,19 +9,34 @@
 
 ## 一、这是什么
 
-本站把散落在官网、官方商店页、PlayStation Blog 与媒体试玩报道中的《影之刃零》信息，
-整理成一份**可检索、可筛选、可持续维护**的中文资料库，共 **57 条档案**，覆盖八大板块：
+本站把散落在官网、官方商店页、PlayStation Blog、社区 Wiki 与媒体攻略中的《影之刃零》信息，
+整理成一份**可检索、可筛选、可持续维护**的中文资料库，共 **96 条档案**，覆盖八大板块：
 
 | 板块 | 说明 | 条目数 |
 | --- | --- | --- |
 | 游戏概述 | 游戏定位、世界框架、平台与发售信息 | 3 |
 | 角色 | 魂、魔渊、阿花、荆野与组织群像 | 8 |
-| 武器与技能 | 主武器、影之武装、杀气资源、首领武器与重铸 | 10 |
+| 武器与技能 | 4 条系统条目 + **43 把武器/影之武装的完整面板** | 47 |
 | 剧情背景 | 构陷、残心与六十六日的追查 | 3 |
 | 地图与敌人 | 八处已公开地名、首领与强敌 | 15 |
 | 玩法机制 | 半开放箱庭、支线分支、记忆花、能力锁与难度 | 6 |
 | 最新资讯 | 按日期倒序的公开资讯与官方文章摘要 | 4 |
-| 资料来源 | 官方链接、媒体来源、资料状态说明与免责声明 | 8 |
+| 资料来源 | 官方链接、社区与媒体来源、资料状态说明与免责声明 | 10 |
+
+### 武器条目的深度
+
+每把武器/影之武装都不是「一句话概述」，而是一张可复核的数据卡：
+
+- 类别（单手 / 双手 / 双持，或影之武装的破坏 / 武学 / 奇门 / 远程 / 召唤）与等级上限
+- **伤害能力、破防能力、异常效果**的 Lv.1 与 Lv.30 两端数值
+- 二周目「轮回」档位的对应数值
+- 普通连招 / 杀气连招段数
+- 绝技与武器特殊机制（如石蒜花、流血、斩铁断链）
+- 铸魂材料与铸魂后的效果
+- Lv.5 / 10 / 15 / 20 / 25 / 30 六条升级特性
+- Lv.2—30 逐级升级材料消耗
+
+例如「残钢刃」：伤害 240 → 936（轮回 324 → 1264），异常效果 124 → 482，5 段普攻 + 3 段杀气连招，Lv.25「癫狂血刃」消耗 15% 当前生命换取 3 层【血刃】。
 
 ### 资料状态机制
 
@@ -32,6 +47,7 @@
 | 已确认 `confirmed` | 可由官方公告、官方商店页或已发售版本直接核实 |
 | 公开演示 `demo` | 来自官方演示、预告或实机片段，数值可能与正式版不同 |
 | 媒体体验 `hands-on` | 来自媒体试玩或体验报道，属可核实的二手记录 |
+| 社区实测 `community` | 社区 Wiki 直接读出的游戏内数据（如武器面板），随版本平衡调整 |
 | 媒体整理 `compiled` | 由媒体整理或转述，官方中文定名与细节可能不同 |
 | 待补充 `incomplete` | 公开资料有限，只记录可核实部分，不以推测填补空白 |
 | 站务说明 `meta` | 本站的编辑规范、免责声明与使用说明 |
@@ -85,7 +101,8 @@ npm run preview # 本地预览构建产物
     │   ├── sourceLinks.ts      # 统一维护的来源 URL 与发售日期常量
     │   ├── overview.ts         # 游戏概述
     │   ├── characters.ts       # 角色
-    │   ├── arsenal.ts          # 武器与技能
+    │   ├── arsenal.ts          # 武器系统：总览、杀气、影之武装、升级与铸魂
+    │   ├── weapons.ts          # 43 把武器/影之武装的面板数据（结构化生成，勿手改结构）
     │   ├── story.ts            # 剧情背景
     │   ├── world.ts            # 地图与敌人
     │   ├── gameplay.ts         # 玩法机制
@@ -99,7 +116,7 @@ npm run preview # 本地预览构建产物
     │   ├── useHashRoute.ts     # hashchange 订阅
     │   ├── useFocusTrap.ts     # 弹层焦点管理
     │   └── useLockBodyScroll.ts
-    ├── components/             # 导航、侧栏、卡片、搜索弹窗、徽标等
+    ├── components/             # 导航、侧栏、卡片、搜索弹窗、武器数值面板等
     ├── pages/                  # 首页 / 板块页 / 条目页 / 搜索页 / 404
     └── styles/
         └── global.css          # 主题变量、布局、响应式与无障碍样式
@@ -158,6 +175,29 @@ export const characterEntries: WikiEntry[] = [
 统一写入 `src/data/sourceLinks.ts` 的 `SOURCE_URLS`，条目中通过 `SOURCE_URLS.xxx` 引用，
 避免同一链接在多处散落、失效后难以同步修改。
 
+### 4. 维护武器面板数据
+
+武器数据集中在 `src/data/weapons.ts`，结构由 `WeaponProfile`（`src/types/wiki.ts`）约束：
+
+```ts
+interface WeaponProfile {
+  kind: '主武器' | '影之武装';
+  category: string;            // 单手武器 / 双手武器 / 双持武器 / 破坏 / 武学 / 奇门 / 远程 / 召唤
+  maxLevel: number;
+  stats: WeaponStat[];         // 伤害能力 / 破防能力 / 异常效果，含 Lv.1、Lv.30 与轮回档位
+  normalCombo?: number;        // 普通连招段数
+  surgeCombo?: number;         // 杀气连招段数
+  specials?: { name: string; text: string }[];
+  soulforge?: { material: string; name: string; effect: string };
+  traits?: WeaponTrait[];      // Lv.5 / 10 / 15 / 20 / 25 / 30
+  upgrade?: { level: number; cost: string }[];
+  note?: string;
+}
+```
+
+只要条目带 `weapon` 字段，详情页就会自动渲染数值面板（成长表、绝技、铸魂、特性、材料折叠区），
+不需要改动页面代码。版本平衡调整后，按 BWIKI 对应页面同步数字即可。
+
 ### 编辑原则
 
 - 只写公开资料能支撑的内容，其余标注「待补充」；
@@ -203,6 +243,10 @@ export const characterEntries: WikiEntry[] = [
 - PlayStation Blog（2026-10-28，首领武器与探索）：
   <https://blog.playstation.com/2026/10/28/phantom-blade-zero-how-boss-weapons-transform-combat-and-exploration/>
 - 媒体整理（八大地图，仅作辅助）：<https://new.qq.com/rain/a/20261026A09VVZ00>
+- BWIKI · 影之刃零 Wiki（武器面板、升级特性、铸魂、材料的主要来源）：
+  <https://wiki.biligame.com/yingzhiren/>
+- 游民星空 · 全武器获取方法（2026-10-29，用于交叉验证获取路径）：
+  <https://www.gamersky.com/handbook/202610/2235539.shtml>
 
 ---
 
